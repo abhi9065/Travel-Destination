@@ -1,0 +1,38 @@
+[
+    {
+      "name": "Paris",
+      "location": "France",
+      "description": "The City of Light, known for its art, fashion, gastronomy, and culture.",
+      "rating": 4.5,
+      "reviews": []
+    },
+    {
+      "name": "Tokyo",
+      "location": "Japan",
+      "description": "A vibrant metropolis known for its tech innovation, historic temples, and diverse neighborhoods.",
+      "rating": 4.2,
+      "reviews": []
+    },
+    {
+      "name": "New York City",
+      "location": "United States",
+      "description": "The city that never sleeps, famous for its iconic skyline, Broadway shows, and diverse cuisine.",
+      "rating": 4.8,
+      "reviews": []
+    },
+    {
+        "name": "Rome",
+        "location": "Italy",
+        "description": "The Eternal City, known for its ancient ruins, art, and delicious pasta.",
+        "rating": 4.0,
+        "reviews": []
+      },
+      {
+        "name": "Sydney",
+        "location": "Australia",
+        "description": "A stunning harbor city with iconic landmarks like the Sydney Opera House and Harbour Bridge.",
+        "rating": 4.6,
+        "reviews": []
+      }
+  ]
+  
