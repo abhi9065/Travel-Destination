@@ -98,9 +98,9 @@ async function createTravelDestination(destinationData) {
         })
 
 
-        async function readDestinationByLocation(travelDestination){
+        async function readDestinationByRating(){
             try {
-              const findLocation  = await Destination.find({ rating : travelDestination})
+              const findLocation  = await Destination.find().sort({ rating : 1})
               return(findLocation)
             } catch (error) {
               console.log(error)
@@ -108,9 +108,9 @@ async function createTravelDestination(destinationData) {
             
             }
             
-            router.get("/rating/:rating" , async (req,res) => {
+            router.get("/rating/ratings" , async (req,res) => {
               try {
-                const destination = await readDestinationByLocation(req.params.rating)
+                const destination = await readDestinationByRating()
                 console.log(destination)
                 res.status(201).json({destination : destination})
               } catch (error) {
@@ -163,6 +163,29 @@ async function updateDestination(destinationId, updatedData) {
       }
     
     })
+
+
+    async function filterDestinationsByRating(minimumRating) {
+      try {
+        const filteredDestinations = await Destination.find({ rating: { $gte: minimumRating } });
+        return filteredDestinations;
+      } catch (error) {
+        console.error('Error filtering destinations by rating:', error);
+        throw error;
+      }
+    }
+    
+
+    router.get('/destinations/filterByRating/:minRating', async (req, res) => {
+      try {
+        const minimumRating = parseFloat(req.params.minRating);
+        const filteredDestinations = await filterDestinationsByRating(minimumRating);
+        res.status(200).json({ destinations: filteredDestinations });
+        
+      } catch (error) {
+        res.status(500).json({ error: error.message });
+      }
+    });
 
 
    
